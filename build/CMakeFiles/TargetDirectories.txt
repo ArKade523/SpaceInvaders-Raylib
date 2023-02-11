@@ -1,0 +1,3 @@
+/Users/kadeangell/Documents/Raylib/build/CMakeFiles/SpaceInvaders.dir
+/Users/kadeangell/Documents/Raylib/build/CMakeFiles/edit_cache.dir
+/Users/kadeangell/Documents/Raylib/build/CMakeFiles/rebuild_cache.dir
