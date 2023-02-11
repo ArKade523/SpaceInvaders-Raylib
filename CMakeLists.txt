@@ -46,6 +46,12 @@ target_link_libraries(${PROJECT_NAME} raylib)
 #     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
 # endif()
 
+if (EMSCRIPTEN)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s ASYNCIFY")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_GLFW=3 -s ASSERTIONS=1 -s WASM=1 -s ASYNCIFY")
+    set(CMAKE_EXECUTABLE_SUFFIX ".html")
+endif ()
+
 # Checks if OSX and links appropriate frameworks (Only required on MacOS)
 if (APPLE)
     target_link_libraries(${PROJECT_NAME} "-framework IOKit")

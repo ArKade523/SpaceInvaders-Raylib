@@ -26,7 +26,6 @@ int main(void) {
     ImageResize(&characterImage, CHARACTER_WIDTH / 2, CHARACTER_HEIGHT / 2);
     Texture2D livesSprite = LoadTextureFromImage(characterImage);
 
-    Color playerTint = defaultWHITE;
     resetGame();
 
     SetTargetFPS(60);
@@ -49,9 +48,7 @@ int main(void) {
                         DrawText(TextFormat("Num Aliens: %i", aliens.size()), 20, 60, 20, (Color) { 120, 200, 120, 255 });
                     }  
 
-                    DrawTexture(characterSprite, CharPosition.x, CharPosition.y, playerTint);
-                    // return playerTint to standard value
-                    playerTint = defaultWHITE;
+                    DrawTexture(characterSprite, CharPosition.x, CharPosition.y, defaultWHITE);
 
                     // Handle playerShots interactions
                     for (int i = 0; i < playerShots.size(); i++) {
@@ -83,7 +80,7 @@ int main(void) {
                             bullet.getPosition().x < CharPosition.x + CHARACTER_WIDTH) {
                                 alienShots.erase(alienShots.begin() + i);
                                 LIVES--;
-                                playerTint = (Color) { 255, 0, 0, 255 };
+                                DrawRectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, (Color) { 255, 0, 0, 50 });
                             }
                     }
 
