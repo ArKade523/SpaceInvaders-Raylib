@@ -13,8 +13,10 @@ int main(void) {
     SetExitKey(KEY_Q);
 
     // Textures
-    Image characterImage = LoadImage("../resources/character.png");
-    Image alienImage = LoadImage("../resources/alien.png");
+    Image characterImage = LoadImage(TextFormat("%s../resources/character.png", GetApplicationDirectory()));
+    Image alienImage = LoadImage(TextFormat("%s../resources/alien.png", GetApplicationDirectory()));
+
+    std::cout << GetApplicationDirectory() << std::endl;
 
     ImageResize(&characterImage, CHARACTER_WIDTH, CHARACTER_WIDTH);
     ImageResize(&alienImage, ALIEN_WIDTH, ALIEN_HEIGHT);
