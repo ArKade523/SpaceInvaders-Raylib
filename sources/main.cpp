@@ -1,6 +1,5 @@
 #include<raylib.h>
 #include<cstdlib>
-#include<cmath>
 #include<iostream>
 #include"../headers/globals.h"
 #include"../headers/projectiles.h"
@@ -102,7 +101,7 @@ int main(void) {
                                 bullet.getPosition().x < alien.getPosition().x + ALIEN_WIDTH) {
                                     if (bullet.getPosition().y > alien.getPosition().y &&
                                         bullet.getPosition().y < alien.getPosition().y + ALIEN_HEIGHT) {
-                                            aliens.erase(aliens.begin() + i);
+                                            if (!alien.isHit()) aliens.erase(aliens.begin() + i);
                                             playerShots.erase(playerShots.begin() + j);
                                             SCORE += 50;
                                         }
@@ -312,9 +311,15 @@ void resetGame() {
 
     // create initial set of aliens
     for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 3; j++) {
+        for (int j = 0; j < 2; j++) {
             Alien* newAlien = new Alien((Vector2){ ALIEN_WIDTH / 2 + i * 100, 60 + 40 * j });
             aliens.push_back(*newAlien);
         }
     }
+
+    for (int i = 0; i < 8; i++) {
+        Tank* newAlien = new Tank((Vector2){ ALIEN_WIDTH / 2 + i * 100, 140});
+        aliens.push_back(*newAlien);
+    }
+
 }
