@@ -29,4 +29,4 @@ int shootCountdown = 30;
 int alienShotCountdown = 240;
 float alienOffsetX = 0;
 Vector2 alienOffsetDelta = { 0.3, .1 };
-const float ALIEN_OFFSET_MAX = 300;
+const float ALIEN_OFFSET_MAX = 1000;
