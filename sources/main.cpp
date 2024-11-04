@@ -3,7 +3,7 @@
 #include<iostream>
 #include"../headers/globals.h"
 #include"../headers/projectiles.h"
-#include"../headers/aliens.h"
+#include"../headers/aliens.hpp"
 
 #define DEBUG 0
 
@@ -312,7 +312,7 @@ void resetGame() {
     // create initial set of aliens
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 2; j++) {
-            Alien* newAlien = new Alien((Vector2){ ALIEN_WIDTH / 2 + i * 100, 60 + 40 * j });
+            Alien* newAlien = new Alien((Vector2){ ALIEN_WIDTH / 2 + i * 100, static_cast<float>(60 + 40 * j) });
             aliens.push_back(*newAlien);
         }
     }

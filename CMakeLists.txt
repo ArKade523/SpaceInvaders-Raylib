@@ -38,6 +38,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
 
 
 target_link_libraries(${PROJECT_NAME} raylib)
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 17)
 
 
 # # Web Configurations
@@ -54,6 +55,9 @@ endif ()
 
 # Checks if OSX and links appropriate frameworks (Only required on MacOS)
 if (APPLE)
+    target_include_directories(${PROJECT_NAME} PUBLIC /Library/Developer/CommandLineTools/usr/include/c++/v1)
+    target_compile_options(${PROJECT_NAME} PRIVATE -stdlib=libc++)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++ -isystem /Library/Developer/CommandLineTools/usr/include/c++/v1")
     target_link_libraries(${PROJECT_NAME} "-framework IOKit")
     target_link_libraries(${PROJECT_NAME} "-framework Cocoa")
     target_link_libraries(${PROJECT_NAME} "-framework OpenGL")

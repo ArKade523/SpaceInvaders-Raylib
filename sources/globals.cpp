@@ -1,8 +1,8 @@
 #include<raylib.h>
 #include<vector>
-#include<../headers/aliens.h>
-#include<../headers/globals.h>
-#include<../headers/projectiles.h>
+#include"../headers/aliens.hpp"
+#include"../headers/globals.h"
+#include"../headers/projectiles.h"
 
 // Constants
 const int SCREEN_WIDTH = 800;
